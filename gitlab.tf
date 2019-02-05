@@ -65,14 +65,19 @@ resource "google_compute_instance" "gitlab-ce" {
         private_key = "${file("${var.ssh_key}")}"
     }
 
-    disk {
-        image = "${var.image}"
+    boot_disk {
+        auto_delete = "true"
+
+        initialize_params {
+            image = "${var.image}"
+            type  = "pd-ssd"
+        }
     }
 
-    disk {
-        disk = "${var.data_volume}"
-        auto_delete = "false"
+    attached_disk {
+        source = "${var.data_volume}"
         device_name = "gitlab_data"
+        mode = "READ_WRITE"
     }
 
     network_interface {

@@ -33,9 +33,11 @@ resource "google_compute_instance" "gitlab-ci-runner" {
         private_key = "${file("${var.ssh_key}")}"
     }
 
-    disk {
-        image = "${var.image}"
-        size = "${var.runner_disk_size}"
+    boot_disk {
+        initialize_params {
+          image = "${var.image}"
+          size = "${var.runner_disk_size}"
+        }
     }
 
     provisioner "file" {
