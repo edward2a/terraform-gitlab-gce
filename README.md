@@ -87,7 +87,6 @@ $ terraform apply
 ### Terraform Variables (Options)
 Options:
   * required:
-    * `auth_file` -- A json file containing the credentials to use to connect to Google Cloud. Please see the [Terraform instructions](https://www.terraform.io/docs/providers/google/index.html#authentication-json-file) for obtaining this file.
     * `config_file` -- This should be your [gitlab.rb](https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/files/gitlab-config-template/gitlab.rb.template) file you want to use to configure your GitLab instance. At the very least, `external_url` should be set. While all options are available for you to set, it is *highly* recommended that you avoid changing any of the paths available in the configuration file.
     * `data_volume` -- The name of the data volume to use to store the GitLab data on.
     * `dns_name` -- What the DNS name for the GitLab instance should be. This can be any FQDN that resolves to your instance.

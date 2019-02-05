@@ -1,7 +1,3 @@
-variable "auth_file" {
-    description = "The configuration file containing the credentials to connect to google"
-}
-
 variable "data_size" {
     description = "The size of the data volume to create in gigabytes"
     default = "10"

@@ -1,9 +1,3 @@
-provider "google" {
-    credentials = "${file("${var.auth_file}")}"
-    project = "${var.project}"
-    region = "${var.region}"
-}
-
 resource "google_compute_network" "gitlab_network" {
     count = "${var.network != "default" ? 1 : 0}"
     description = "Network for GitLab instance"

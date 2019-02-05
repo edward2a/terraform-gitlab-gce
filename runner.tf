@@ -1,4 +1,3 @@
-# provider google in gitlab.tf
 # resource google_compute_network gitlab_network in gitlab.tf
 data "template_file" "runner_host" {
     template = "$${runner_host == "GENERATE" ? generated_host : runner_host}"
