@@ -74,7 +74,9 @@ resource "google_compute_instance" "gitlab-ce" {
     }
 
     network_interface {
-        network = "${var.network}"
+        network = "${var.subnetwork == "" ? var.network : "" }"
+        subnetwork = "${var.subnetwork}"
+
         access_config {
             nat_ip = "${google_compute_address.external_ip.address}"
         }

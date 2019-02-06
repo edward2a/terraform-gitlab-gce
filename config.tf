@@ -23,6 +23,11 @@ variable "network" {
     default = "default"
 }
 
+variable "subnetwork" {
+    description = "The subnetwork for the instance"
+    default = ""
+}
+
 variable "public_ports_ssl" {
     description = "A list of ports that need to be opened for GitLab to work"
     default = ["80", "443", "22"]

@@ -1,4 +1,3 @@
-# resource google_compute_network gitlab_network in gitlab.tf
 data "template_file" "runner_host" {
     template = "$${runner_host == "GENERATE" ? generated_host : runner_host}"
     vars {
@@ -16,7 +15,9 @@ resource "google_compute_instance" "gitlab-ci-runner" {
     tags = ["gitlab-ci-runner"]
 
     network_interface {
-        network = "${var.network}"
+        network = "${var.subnetwork == "" ? var.network : "" }"
+        subnetwork = "${var.subnetwork}"
+
         access_config {
           // Ephemeral IP
         }
