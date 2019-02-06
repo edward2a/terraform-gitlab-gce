@@ -133,3 +133,8 @@ variable "runner_machine_type" {
     description = "A machine type for your compute instance, used by GitLab CI Runner"
     default = "n1-standard-1"
 }
+
+locals {
+  runner_token = "${var.runner_token != "GENERATE" ? var.runner_token : random_string.runner_token.result}"
+  initial_root_password = "${var.initial_root_password != "GENERATE" ? var.initial_root_password : random_string.initial_root_password.result}"
+}
