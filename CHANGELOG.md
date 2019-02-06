@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.2.2
+* do not create a network if, if default is not used it may be another
+* move from random_id to random_string and use locals to select var or generated
+
 ## v0.2.1
 * update disk entries to boot_disk and attached_disk
 
