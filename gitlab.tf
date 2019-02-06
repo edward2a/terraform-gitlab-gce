@@ -1,10 +1,3 @@
-resource "google_compute_network" "gitlab_network" {
-    count = "${var.network != "default" ? 1 : 0}"
-    description = "Network for GitLab instance"
-    name = "${var.network}"
-    auto_create_subnetworks = "true"
-}
-
 resource "google_compute_firewall" "external_ports_ssl" {
     count = "${var.ssl_certificate != "/dev/null" ? var.deploy_gitlab ? 1 : 0 : 0}"
     name = "${var.prefix}${var.external_ports_name}"
